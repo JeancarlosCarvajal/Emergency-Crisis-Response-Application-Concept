@@ -6,5 +6,6 @@ Diseno de Concepto de Apliacion para Respuesta ante Crisis de Emergencia (Emerge
 
 ## Appearance Application
   
-<!-- ![Appearance 1](appearance/1.png) 
-![Appearance 2](appearance/movie-1.gif)  -->
+![Appearance 1](appearance/1.png) 
+![Appearance 2](appearance/2.png) 
+<!-- ![Appearance 2](appearance/movie-1.gif)  -->
