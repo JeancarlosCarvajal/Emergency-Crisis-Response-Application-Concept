@@ -22,30 +22,32 @@ class IconHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
+    return Container( 
+      child: Stack(
+        children: [
 
-        _IconHeaderBackgroud(finalColorShadowHeader: initialColorShadowHeader, initialColorShadowHeader: finalColorShadowHeader),
+          _IconHeaderBackgroud(finalColorShadowHeader: initialColorShadowHeader, initialColorShadowHeader: finalColorShadowHeader),
 
-        Positioned(
-          top: -65,
-          left: -75,
-          child: FaIcon(iconHeader, size: 250, color: Colors.white.withOpacity(0.2)) 
-        ),
+          Positioned(
+            top: -65,
+            left: -75,
+            child: FaIcon(iconHeader, size: 250, color: Colors.white.withOpacity(0.2)) 
+          ),
 
-        Column(
-          children: [
-            const SizedBox(height: 70, width: double.infinity),
-            Text( tituloHeader, style: const TextStyle(fontSize: 20, color: Colors.white)),
-            const SizedBox(height: 20),
-            Text( subtituloHeader, style: const TextStyle(fontSize: 25, color: Colors.white)),
-            const SizedBox(height: 20),
-            FaIcon(iconHeader, size: 80, color: Colors.white) 
+          Column(
+            children: [
+              const SizedBox(height: 70, width: double.infinity),
+              Text( tituloHeader, style: const TextStyle(fontSize: 20, color: Colors.white)),
+              const SizedBox(height: 20),
+              Text( subtituloHeader, style: const TextStyle(fontSize: 25, color: Colors.white)),
+              const SizedBox(height: 20),
+              FaIcon(iconHeader, size: 80, color: Colors.white) 
 
-          ],
-        ),
+            ],
+          ),
 
-      ]
+        ]
+      ),
     );
   }
 }
@@ -65,7 +67,7 @@ class _IconHeaderBackgroud extends StatelessWidget {
       width: double.infinity,
       height: 250,
       decoration: BoxDecoration(
-        color: Colors.red,
+        // color: Colors.red,
         borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(80)),
         gradient: LinearGradient(
           begin: Alignment.topCenter,

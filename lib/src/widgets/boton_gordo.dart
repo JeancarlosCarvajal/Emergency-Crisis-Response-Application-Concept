@@ -1,34 +1,65 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+
 class BotonGordo extends StatelessWidget {
+
+  final IconData iconButton;
+  final String textButton; 
+  final Color initialColorShadowButton;
+  final Color finalColorShadowButton;
+  final VoidCallback onPress;
    
-  const BotonGordo({Key? key}) : super(key: key);
+  const BotonGordo({
+    Key? key, 
+    required this.iconButton, 
+    required this.textButton, 
+    this.initialColorShadowButton =const Color(0xff6989f5),
+    this.finalColorShadowButton =const Color(0xff906ef5), 
+    required this.onPress
+  }) : super(key: key);
   
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [ 
-        _BotonGordoBackGround(),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            SizedBox(height: 140, width: 40),
-            FaIcon(FontAwesomeIcons.carBurst, color: Colors.white, size: 40),
-            SizedBox(width: 20),
-            Expanded(child: Text( 'Motor accident', style: TextStyle(color: Colors.white, fontSize: 18))),
-            FaIcon(FontAwesomeIcons.chevronRight, color: Colors.white),
-            SizedBox(width: 40)
-          ],
-        )
-      ],
+    return GestureDetector(
+      onTap: onPress,
+      child: Stack(
+        children: [ 
+    
+          _BotonGordoBackGround(
+            iconButton: iconButton, 
+            initialColorShadowButton: initialColorShadowButton, 
+            finalColorShadowButton: finalColorShadowButton
+          ),
+    
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const SizedBox(height: 140, width: 40),
+              FaIcon(iconButton, color: Colors.white, size: 40),
+              const SizedBox(width: 20),
+              Expanded(child: Text( textButton, style: const TextStyle(color: Colors.white, fontSize: 18))),
+              const FaIcon(FontAwesomeIcons.chevronRight, color: Colors.white),
+              const SizedBox(width: 40)
+            ],
+          ),
+    
+        ],
+      ),
     );
   }
 }
 
 class _BotonGordoBackGround extends StatelessWidget {
+  final IconData iconButton;
+  final Color initialColorShadowButton; 
+  final Color finalColorShadowButton; 
+
   const _BotonGordoBackGround({
-    Key? key,
+    Key? key, 
+    required this.initialColorShadowButton, 
+    required this.finalColorShadowButton, 
+    required this.iconButton,
   }) : super(key: key);
 
   @override
@@ -47,10 +78,10 @@ class _BotonGordoBackGround extends StatelessWidget {
           )
         ],
         borderRadius: BorderRadius.circular(15),
-        gradient: const LinearGradient(
+        gradient: LinearGradient(
           colors: [
-            Color(0xff6989f5),
-            Color(0xff906ef5)
+            initialColorShadowButton,
+            finalColorShadowButton
           ]
         )
       ),
@@ -61,7 +92,7 @@ class _BotonGordoBackGround extends StatelessWidget {
             Positioned(
               right: -20,
               top: -20,
-              child: FaIcon(FontAwesomeIcons.carBurst, size: 150, color: Colors.white.withOpacity(0.2))
+              child: FaIcon(iconButton, size: 150, color: Colors.white.withOpacity(0.2))
             )
           ],
         ),
